@@ -1,0 +1,462 @@
+%\documentclass[12pt,a4paper]{amsart}
+\documentclass[10pt,a4paper]{article}
+\ifx\pdfpageheight\undefined\PassOptionsToPackage{dvips}{graphicx}\else%
+\PassOptionsToPackage{pdftex}{graphicx}
+\PassOptionsToPackage{pdftex}{color}
+\fi
+
+\usepackage{diagrams1}
+\usepackage[all]{xy}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{amssymb,amstext,amsmath}
+\usepackage{epsf}
+\usepackage{epsfig}
+% \usepackage{isolatin1}
+\usepackage{a4wide}
+\usepackage{verbatim}
+\usepackage{proof}
+\usepackage{latexsym}
+\usepackage{amssymb}
+% \usepackage{stmaryrd}
+\newcommand{\abs}[2]{\lambda #1 . #2}            % abstraction of #1 in #2
+\usepackage{mytheorems}
+
+
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+
+%%%%%%%%%
+\def\oge{\leavevmode\raise
+.3ex\hbox{$\scriptscriptstyle\langle\!\langle\,$}}
+\def\feg{\leavevmode\raise
+.3ex\hbox{$\scriptscriptstyle\,\rangle\!\rangle$}}
+
+%%%%%%%%%
+
+
+\newcommand\myfrac[2]{
+ \begin{array}{c}
+ #1 \\
+ \hline \hline 
+ #2
+\end{array}}
+
+
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}
+
+%\newcommand{\lam}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\north}{{\sf N}}
+\newcommand{\south}{{\sf S}}
+\newcommand{\merid}{{\sf merid}}
+\newcommand{\elim}{{\sf elim}}
+\newcommand{\openb}[1]{\mathsf{b}(#1)}
+\newcommand{\dM}{{\sf dM}}
+\newcommand{\Cir}{\mathsf{S^1}}
+\newcommand{\inh}{\mathsf{inh}}
+\newcommand{\squash}{{\sf squash}}
+\newcommand{\transp}{{\sf transp}}
+\newcommand{\squeeze}{{\sf squeeze}}
+\newcommand{\lop}{\mathsf{loop}}
+\newcommand{\coerce}{\mathsf{comp}}
+\newcommand{\inc}{\mathsf{inc}}
+\newcommand{\base}{\mathsf{base}}
+\newcommand{\Top}{{\sf Top}}
+\newcommand{\Sys}{{\sf S}}
+\newcommand{\Ref}{{\sf Ref}}
+\newcommand{\LINE}{{\sf line}}
+\newcommand{\JJ}{{\sf J}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\PP}{{\sf Path}}
+\newcommand{\pp}{\mathsf{p}}
+\newcommand{\Sp}{{\sf S}}
+\newcommand{\sprop}{\mathsf{sprop}}
+\newcommand{\sset}{\mathsf{sset}}
+\newcommand{\bset}{\mathsf{bset}}
+\newcommand{\sProp}{\mathsf{sProp}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\bSet}{\mathsf{bSet}}
+\newcommand{\TT}{\mathsf{tt}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Iso}{{\sf Iso}}
+\newcommand{\refl}{{\bf refl}}
+\newcommand{\HH}{{\sf H}}
+
+
+\newcommand{\mkbox}[1]{\ensuremath{#1}}
+
+
+\newcommand{\Id}{{\sf Id}}
+\newcommand{\ident}{{\sf id}}
+\newcommand{\Path}{{\sf Path}}
+\newcommand{\IdP}{{\sf IdP}}
+\newcommand{\ID}{{\sf ID}}
+\newcommand{\Equiv}{{\sf Equiv}}
+\newcommand{\isEquiv}{{\sf isEquiv}}
+\newcommand{\ext}{{\sf ext}}
+\newcommand{\isContr}{{\sf isContr}}
+\newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\Susp}{\mathsf{Susp}}
+\newcommand{\susp}{\mathsf{susp}}
+\newcommand{\Fill}{\mathsf{Fill}}
+
+\newcommand{\CC}{{\mathcal C}}
+\newcommand{\subst}{{\sf subst}}
+\newcommand{\res}{{\sf res}}
+\newcommand{\Int}{{\bf I}}
+\newcommand{\sem}[1]{\langle #1\rangle}
+
+\newcommand{\Sph}{{\sf S}^1}
+\newcommand{\PROP}{{\sf prop}}
+\newcommand{\SET}{{\sf set}}
+\newcommand{\pair}[1]{{\langle #1 \rangle}}
+\newcommand{\Prod}[2]{\displaystyle\prod _{#1}~#2}
+\newcommand{\Sum}[2]{\displaystyle\sum _{#1}~#2}
+\newcommand{\gothic}{\mathfrak}
+\newcommand{\omicron}{*}
+\newcommand{\gP}{{\gothic p}}
+\newcommand{\lift}[1]{\tilde{#1}}
+\newcommand{\gM}{{\gothic M}}
+\newcommand{\gN}{{\gothic N}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\ints}{\mathbb{Z}}
+
+%\newtheorem{proposition}[theorem]{Proposition}
+
+%\documentstyle{article}
+\newcommand{\IF}[3]{{{\sf if}~#1~{\sf then}~#2~{\sf else}~#3}}
+\newcommand{\lfpi}[3]{(\Pi #1{:}#2)#3}
+\newcommand{\HA}{{\sf HA}}
+\newcommand{\AC}{{\sf AC}}
+\newcommand{\HAw}{\hbox{\sf{HA}$^{\omega}$}}
+\newcommand{\EM}{\hbox{\sf{EM}}}
+\newcommand{\DC}{\hbox{\sf{DC}}}
+\newcommand{\BB}{\hbox{\sf{B}}}
+\def\Box{\hbox{\sf b}}
+
+\def\NN{\hbox{\sf N}}
+\def\Type{\mathsf{Type}}
+\def\KType{\mathsf{KType}}
+\def\FType{\mathsf{FType}}
+%\def\Box{\hbox{\sf B}}
+\def\PER{\hbox{\sf PER}}
+\def\FUN{\Pi}
+\def\ELEM{\hbox{\sf El}}
+\def\GG{\hbox{\sf G}}
+\def\TP{\hbox{\sf TP}}
+\def\N0{\hbox{\sf N}_0}
+\def\ZERO{\hbox{\sf zero}}
+\def\SUCC{\hbox{s}}
+\setlength{\oddsidemargin}{0in} % so, left margin is 1in
+\setlength{\textwidth}{6.27in} % so, right margin is 1in
+\setlength{\topmargin}{0in} % so, top margin is 1in
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.19in} % so, foot margin is 1.5in
+\setlength{\footskip}{.8in}
+
+% Definition of \placetitle
+% Want to do an alternative which takes arguments
+% for the names, authors etc.
+
+\newcommand{\lbr}{\lbrack\!\lbrack}
+\newcommand{\rbr}{\rbrack\!\rbrack}
+%\newcommand{\sem}[2] {\lbr #1 \rbr_{#2}}  % interpretation of the terms
+\newcommand{\PAIR}[2] {{<}#1,#2{>}}  % interpretation of the terms
+\newcommand{\add}{\mathsf{add}}
+\newcommand{\app}{\mathsf{app}}
+\newcommand{\APP}{\mathsf{APP}}
+\newcommand{\BAPP}[2]{\mathsf{app}(#1,#2)}
+\newcommand{\nat}{{N}}
+\newcommand{\NNO}{\hbox{\sf N$_0$}}
+\newcommand{\UU}{\hbox{\sf U}}
+\newcommand{\VV}{\hbox{\sf V}}
+\newcommand{\EXIT}{\mathsf{exit}}
+\newcommand{\natrec}{\hbox{\sf{natrec}}}
+\newcommand{\boolrec}{\hbox{\sf{boolrec}}}
+\newcommand{\nil}{[]}
+\newcommand{\cons}{\mathsf{cons}}
+\newcommand{\lists}{\mathsf{list}}
+\newcommand{\VEC}{\mathsf{vec}}
+\newcommand{\reclist}{\mathsf{RecL}}
+\newcommand{\vect}{\mathsf{vect}}
+\newcommand{\brecp}{\Psi}
+\newcommand{\true}{\mathsf{true}}
+\newcommand{\false}{\mathsf{false}}
+\newcommand{\bool}{{N_2}}
+\newcommand{\ifte}[3]{\mathsf{if}\ #1\ \mathsf{then}\ #2\ \mathsf{else}\ #3}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\Con}{{\sf Con}}
+\newcommand{\Typ}{{\sf Type}}
+\newcommand{\Elem}{{\sf Elem}}
+\newcommand{\Char}{{\sf Char}}
+%\newcommand{\id}{{\sf id}}
+\newcommand{\id}{{1}}
+\newcommand{\mm}{{\sf m}}
+\newcommand{\qq}{{\sf q}}
+\newcommand{\COMP}[3]{{\sf comp}~#1~#2~#3}
+\newcommand{\comp}{{\sf comp}}
+\newcommand{\hcomp}{{\sf hcomp}}
+\newcommand{\genComp}{{\sf Comp}}
+\newcommand{\pres}{{\sf pres}}
+\newcommand{\extend}{{\sf extend}}
+\newcommand{\eq}{{\sf equiv}}
+
+\newcommand{\Transp}{{\sf fill}}
+\newcommand{\Glue}{{\sf Glue}}
+\newcommand{\glue}{{\sf glue}}
+\newcommand{\Comp}{{\sf fill}}
+% Marc's macros
+\newcommand{\op}[1]{#1^\mathit{op}}
+\newcommand{\set}[1]{\{#1\}} 
+\newcommand{\es}{\emptyset}
+\newcommand{\lto}{\longmapsto}
+\newcommand{\rup}[1]{#1{\uparrow}}
+\newcommand{\rdo}[1]{#1{\downarrow}}
+\newcommand{\rupx}[1]{#1{\uparrow_{x}}}
+\newcommand{\rdox}[1]{#1{\downarrow_{x}}}
+\newcommand{\rupxy}[1]{#1{\uparrow_{x,y}}}
+\newcommand{\rdoxy}[1]{#1{\downarrow_{x,y}}}
+\newcommand{\rupyx}[1]{#1{\uparrow_{y,x}}}
+\newcommand{\rdoyx}[1]{#1{\downarrow_{y,x}}}
+\newcommand{\del}[1]{}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\bind}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\lam}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\make}[1]{{\langle}#1{\rangle}}
+\newcommand{\OO}{O}
+
+% end Marc's macros
+\begin{document}
+
+\title{Simplicial set semantics of higher inductive types}
+
+\author{}
+\date{}
+\maketitle
+
+%\rightfooter{}
+
+\section*{Introduction}
+
+ The goal of this note is to show that, by combining some results in
+the references\cite{CHM}, \cite{GS} and \cite{OP}, we do get a model of higher inductive
+types in simplicial sets, extending and simplifying Voevodsky's model of
+univalent type theory. This follows essentially what was announced by Andrew Swan in 
+some 
+discussions\footnote{This discussion can be found at
+https://groups.google.com/d/msg/homotopytypetheory/bNHRnGiF5R4/3RYz1YFmBQAJ.}
+and this note tries to record the details of this argument.
+
+ To simplify the presentation, we limit ourselves to explain how to represent
+the suspension operation as an operation in $U\rightarrow U$ where $U$ is some
+univalent universe in the simplicial set model.
+
+ Another goal of this note is to record the fact that the ideas used for
+the cubical set model, presented axiomatically in \cite{OP}, can also be
+combined with \cite{Sattler} to give a quite simple way to build the
+standard Quillen model structure on {\em simplicial} sets. The use of classical
+logic is limited to one point (for establishing the logical equivalence of the
+``uniform'' notion of Kan fibration with the usual definition).
+
+\section{A reformulation of Kan composition}
+
+ Like in \cite{OP}, we use the internal language of presheaf models.
+We write $I,J,K,\dots$ the objects of the base category (nonempty
+finite linear posets).
+We write $\FF$ the presheaf such that $\FF(I)$ is the set of decidable
+sieves on $I$. (If the metalanguage is classical then $\FF = \Omega$
+is the subobject classifier, but we want here to limit the use of classical
+logic to one place.) We let $\II$ be the presehaf $\Delta^1$.
+Internally, $\II$ has a (bounded) distributive lattice structure
+and the can follow the setting of \cite{CHM,OP}.
+We have a dependent type $[\psi]$ for $\psi:\FF$ where $[\psi]$
+is given by $[\psi](I,S) = \{0~|~1_I\in S\}$.
+A {\em filling operation} for a dependent type $A$ over a type $\Gamma$
+is an operation which given $\gamma:\Gamma^{\II}$ and $\psi:\FF$ and a partial section
+in $\Pi (i:\II) [\psi\vee i = b]\rightarrow A\gamma(i)$ with $b = 0$ or $1$,
+extends it to a total section in $\Pi (i:\II) A\gamma(i)$.
+We write $\Fill(\Gamma,A)$ the type of such operations.
+
+\medskip
+
+ If $\Gamma$ is the terminal object we get the notion of {\em fibrancy} structure.
+A fibrancy structure on a presheaf $X$ is an operation which, given
+$\psi:\FF$ and a partial section in $\Pi (i:\II)[\psi\vee i = b]\rightarrow X$
+extends it to a total section in $X^{\II}$.
+We write $\Fib(X)$ the type of such operations.
+
+ In general to give only $\Pi(\rho:\Gamma)\Fib(A\rho)$ is weaker than 
+to give an element in $\Fib(\Gamma,A)$.
+
+ In \cite{CHM} we present a type of {\em transport structure}, which 
+together with an element in  $\Pi(\rho:\Gamma)\Fib(A\rho)$ produces
+an element in  $\Fib(\Gamma,A)$.
+It is given by an operation which give $\psi$ and $\gamma:\Gamma^{\II}$
+which is {\em constant} on $\psi$ and a partial section in
+$\Pi (i:\II)[\psi\vee i = b]\rightarrow A\gamma(i)$ which is {\em constant}
+on $\psi$, extends it to a total section in $\Pi (i:\II)A\gamma(i)$.
+
+\section{Suspension operation}
+
+ Given $X$, we define a $\Susp~X$-algebra to be a type $A$ with a fibrancy
+structure $h_A$ and two points $n_A,s_A$ and a family of paths $l_A:X\rightarrow A^{\II}$
+connecting $n_A$ to $s_A$. There is a natural notion of $\Susp~X$-algebra and
+we can show \cite{CHM} externally\footnote{Thanks to one referee for pointing out to us
+that we don't need any special property of the interval for this operation, and thus that it
+works as well for {\em simplicial} sets.} that for any $X$ there exists an inital $\Susp~X$-algebra
+denoted simply by $\Susp~X$. It has three constructors $\north,~\south:\Susp~X$
+and $\merid~x~i:\Susp~X$ for $x:X$ and $i:\II$.
+
+\begin{theorem}
+  $\susp{X}$ satisfies the dependent elimination rule for the
+  suspension: given a family of type $P$ over $\susp{X}$ with a
+  composition structure, and $n$ in $P~\north$ and $s$ in $P~\south$
+  and $l~x~i$ in $P~(\merid~x~i)$ such that $l~x~0 = n$ and $l~x~1 =            
+  s$ there exists a map $\elim:\Pi (x:\susp{X})P~x$ such that
+  $\elim~\north = n$ and $\elim~\south = s$ and $\elim~(\merid~x~i) =           
+  l~x~i$.
+\end{theorem}
+
+ If $A$ is a dependent type over $\Gamma$ then we define $\Susp~A$ by
+$(\Susp~A)\rho = \Susp~(A\rho)$. It is then possible to show
+\cite{CHM} that from any element in $\Fill(\Gamma,A)$ we can build
+an element in $\Fill(\Gamma,\Susp~A)$.
+
+  Let ${\cal U}$ be a Grothendieck universe. If $A$ is ${\cal U}$-valued
+presheaf on the category of elements of $\Gamma$, then so is
+$\Susp~A$.
+
+\section{Kan fibration and simplicial set model}
+
+ We can relate this internal notion of filling structure to the usual
+notion of Kan fibration.
+
+\begin{theorem}\label{main}
+If $\Gamma$ is a presheaf and $A$ a presheaf on the category of elements of 
+$\Gamma$ then the following conditions are equivalent
+\begin{enumerate}
+\item $\Gamma.A\rightarrow\Gamma$ is a Kan fibration
+\item $\Gamma.A\rightarrow\Gamma$ has the right lifting property w.r.t. any pushout product
+of a monomorphism and an endpoint inclusion in $\Delta^1$
+\item there exists an element in $\Fill(\Gamma,A)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The equivalence between the two first points is a classic result in the theory
+of simplicial sets (e.g. Goerss-Jardine, Proposition 4.2; this is the only place
+where one uses classical logic, and more precisely decidability of degeneracy and 
+axiom of choice). The equivalence
+of the second and third conditions is proved elegantly in \cite{GS}, by using the
+notion of Leibnitz product and exponential.
+\end{proof}
+
+ We introduce the following notation $\Type_0(\Gamma)$ is the set
+of ${\cal U}$-valued presheaves on the category of elements of $\Gamma$,
+and  $\FType_0(\Gamma)$ is the set
+of ${\cal U}$-valued presheaves on the category of elements of $\Gamma$
+{\em together with} a filling structure
+and  $\KType_0(\Gamma)$ is the subpresheaf of $\Type_0(\Gamma)$
+of ${\cal U}$-valued presheaves on the category of elements of $\Gamma$
+for which {\em there exists} a filling structure. By Theorem \ref{main},
+$\KType_0(\Gamma)$ is equivalently the set of ${\cal U}$-valued presheaves $A$ on the presheaf $\Gamma$
+such that $\Gamma.A\rightarrow \Gamma$ is a Kan fibration.
+
+All of these define 
+presheaves on the category of presheaves in a canonical way.
+
+ We define $U(I)$ to be the set $\KType_0(Yon(I))$.
+We define a presheaf $El$ on the category of elements of $U$ by
+$El(I,X) = X(I,1_I)$, so that $El$ is ${\cal U}$-valued. 
+If $A$ is a ${\cal U}$-valued presheaf on the category
+of elements of $\Gamma$ with a filling structure, there exists a unique map $|A|:\Gamma\rightarrow U$
+such that $El|A| = A$.
+
+ It can be shown that $U.El\rightarrow U$ is a Kan fibration.
+By Theorem \ref{main}, we have a global element in $\Fill(U,El)$
+(this is the only place where classical logic is used).
+
+ We expand the difference between this model (where filling is a property)
+and the ``cubical'' set models (where filling is a structure). If we
+define $V(I)$ to be the set $\FType(Yon(I))$, then this defines a presheaf, but there
+will not be a natural bijection between $\Gamma\rightarrow V$
+and $\FType_0(\Gamma)$.
+On the contrary, when we define $U(I)$ as above, then there is a natural
+bijection between the set $\Gamma\rightarrow U$
+and $\KType_0(\Gamma)$.
+
+We have a map $\susp:U\rightarrow U$ such that 
+$El (\susp~X) = \Susp~(El X)$ for $X:U$.
+
+ To show that we have an elimination rule, we proceed as for showing the existence
+of the elimination rule for the identity type in the simplicial set model.
+We consider the context (using extension types notation)
+$$
+X:U,~P:El(\susp~X)\rightarrow U,~n:P~\north,~s:P~\south,
+~l:\Pi (x:El X)\Pi (i:\II)P~(\merid~x~i)[i=0\mapsto n,~i=1\mapsto s]
+$$
+and in this context (like in \cite{CHM}) we 
+build an element in $\elim:\Pi (x:El (\susp~X))P~x$ such that
+$\elim~\north = n$ and $\elim~\south = s$ and $\elim~(\merid~x~i) =           
+l~x~i$.
+
+\section{Quillen model structure on simplicial sets and one conjecture}
+
+ Using \cite{OP}, it can be shown that $U$ is fibrant
+(i.e. has a fibrant structure). We can follow \cite{Sattler}
+and build a model structure on simplicial sets. The only use of
+classical logic is in the existence of a filling structure in $\Fill(U,El)$
+which is a consequence of Theorem \ref{main}.
+
+\medskip
+
+ It follows also from what we presented that it is possible to interpret in simplicial
+sets the version of cubical type theory (based on distributive lattice) where 
+the composition operation are new {\em constants} (they satisfy only the substitution laws
+but no computation rules for composition of dependent products and sums and paths and
+universes). This system has also models in cubical sets (where we can compute).
+A conjecture is that it should be possible to use the glueing technique
+(as in \cite{Shulman}) to show that this formal system satisfies Voevodsky's conjecture: any
+closed term of type natural numbers should be path equal to a numeral.
+This would be one way to show that various versions of cubical type theory (that are extensions
+of this ``constant'' version by new computation rules) give the same values for a closed
+term of type natural numbers in ordinary dependent type theory extended with univalence.
+
+\begin{thebibliography}{9}
+
+\bibitem{CHM}
+Th. Coquand, S. Huber and A. M\"ortberg.
+\newblock{On Higher Inductive Types in Cubical Type Theory.}
+\newblock{LICS 2018.}
+
+\bibitem{GS}
+N. Gambino and Ch. Sattler.
+\newblock{The Frobenius condition, right properness, and uniform fibrations.}
+\newblock{Journal of Pure and Applied Algebra, 221 (12), 2017, pp. 3027-3068.}
+
+\bibitem{OP}
+I. Orton and A. Pitts.
+\newblock{Axioms for modelling cubical type theory in a topos.}
+\newblock{CSL 2016.}
+
+
+\bibitem{Sattler}
+Ch. Sattler.
+\newblock{The equivalence extension property and model structures.}
+\newblock{Submitted, 2017, https://arxiv.org/pdf/1704.06911.}
+
+\bibitem{Shulman}
+M. Shulman.
+\newblock{Univalence for inverse diagrams and homotopy canonicity.}
+\newblock{MSCS, p. 1203-1277, 2015.}
+
+\end{thebibliography}
+
+\end{document}      
+                                                                                  
+ 

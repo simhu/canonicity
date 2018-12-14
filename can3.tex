@@ -1,0 +1,537 @@
+%\documentclass[12pt,a4paper]{amsart}
+\documentclass[10pt,a4paper]{article}
+\ifx\pdfpageheight\undefined\PassOptionsToPackage{dvips}{graphicx}\else%
+\PassOptionsToPackage{pdftex}{graphicx}
+\PassOptionsToPackage{pdftex}{color}
+\fi
+
+\usepackage{diagrams1}
+\usepackage[all]{xy}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{amssymb,amstext,amsmath}
+\usepackage{epsf}
+\usepackage{epsfig}
+% \usepackage{isolatin1}
+\usepackage{a4wide}
+\usepackage{verbatim}
+\usepackage{proof}
+\usepackage{latexsym}
+\usepackage{amssymb}
+% \usepackage{stmaryrd}
+\newcommand{\abs}[2]{\lambda #1 . #2}            % abstraction of #1 in #2
+\usepackage{mytheorems}
+
+
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+
+
+%%%%%%%%%
+\def\oge{\leavevmode\raise
+.3ex\hbox{$\scriptscriptstyle\langle\!\langle\,$}}
+\def\feg{\leavevmode\raise
+.3ex\hbox{$\scriptscriptstyle\,\rangle\!\rangle$}}
+
+%%%%%%%%%
+
+
+\newcommand\myfrac[2]{
+ \begin{array}{c}
+ #1 \\
+ \hline \hline 
+ #2
+\end{array}}
+
+
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}
+
+%\newcommand{\lam}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\north}{{\sf N}}
+\newcommand{\south}{{\sf S}}
+\newcommand{\merid}{{\sf merid}}
+\newcommand{\elim}{{\sf elim}}
+\newcommand{\openb}[1]{\mathsf{b}(#1)}
+\newcommand{\dM}{{\sf dM}}
+\newcommand{\Cir}{\mathsf{S^1}}
+\newcommand{\inh}{\mathsf{inh}}
+\newcommand{\squash}{{\sf squash}}
+\newcommand{\transp}{{\sf transp}}
+\newcommand{\squeeze}{{\sf squeeze}}
+\newcommand{\lop}{\mathsf{loop}}
+\newcommand{\coerce}{\mathsf{comp}}
+\newcommand{\inc}{\mathsf{inc}}
+\newcommand{\base}{\mathsf{base}}
+\newcommand{\Top}{{\sf Top}}
+\newcommand{\Sys}{{\sf S}}
+\newcommand{\Ref}{{\sf Ref}}
+\newcommand{\LINE}{{\sf line}}
+\newcommand{\JJ}{{\sf J}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\PP}{{\sf Path}}
+\newcommand{\pp}{\mathsf{p}}
+\newcommand{\Sp}{{\sf S}}
+\newcommand{\sprop}{\mathsf{sprop}}
+\newcommand{\sset}{\mathsf{sset}}
+\newcommand{\bset}{\mathsf{bset}}
+\newcommand{\sProp}{\mathsf{sProp}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\bSet}{\mathsf{bSet}}
+\newcommand{\TT}{\mathsf{tt}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Iso}{{\sf Iso}}
+\newcommand{\refl}{{\bf refl}}
+\newcommand{\HH}{{\sf H}}
+
+
+\newcommand{\mkbox}[1]{\ensuremath{#1}}
+
+
+\newcommand{\Id}{\mathsf{Id}}
+\newcommand{\ident}{{\sf id}}
+\newcommand{\Path}{{\sf Path}}
+\newcommand{\IdP}{{\sf IdP}}
+\newcommand{\ID}{{\sf ID}}
+\newcommand{\Equiv}{{\sf Equiv}}
+\newcommand{\isEquiv}{{\sf isEquiv}}
+\newcommand{\ext}{{\sf ext}}
+\newcommand{\isContr}{{\sf isContr}}
+\newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\Susp}{\mathsf{Susp}}
+\newcommand{\susp}{\mathsf{susp}}
+\newcommand{\Fill}{\mathsf{Fill}}
+
+\newcommand{\CC}{{\mathcal C}}
+%\newcommand{\subst}{{\sf subst}}
+\newcommand{\res}{{\sf res}}
+\newcommand{\Int}{{\bf I}}
+\newcommand{\sem}[1]{\langle #1\rangle}
+
+\newcommand{\Sph}{{\sf S}^1}
+\newcommand{\PROP}{{\sf prop}}
+\newcommand{\SET}{{\sf set}}
+\newcommand{\pair}[1]{{\langle #1 \rangle}}
+\newcommand{\Prod}[2]{\displaystyle\prod _{#1}~#2}
+\newcommand{\Sum}[2]{\displaystyle\sum _{#1}~#2}
+\newcommand{\gothic}{\mathfrak}
+\newcommand{\omicron}{*}
+\newcommand{\gP}{{\gothic p}}
+\newcommand{\lift}[1]{\tilde{#1}}
+\newcommand{\gM}{{\gothic M}}
+\newcommand{\gN}{{\gothic N}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\ints}{\mathbb{Z}}
+
+%\newtheorem{proposition}[theorem]{Proposition}
+
+%\documentstyle{article}
+\newcommand{\IF}[3]{{{\sf if}~#1~{\sf then}~#2~{\sf else}~#3}}
+\newcommand{\lfpi}[3]{(\Pi #1{:}#2)#3}
+\newcommand{\HA}{{\sf HA}}
+\newcommand{\AC}{{\sf AC}}
+\newcommand{\HAw}{\hbox{\sf{HA}$^{\omega}$}}
+\newcommand{\EM}{\hbox{\sf{EM}}}
+\newcommand{\DC}{\hbox{\sf{DC}}}
+\newcommand{\BB}{\hbox{\sf{B}}}
+\def\Box{\hbox{\sf b}}
+
+\def\NN{\mathsf{N}}
+\def\UU{\mathsf{U}}
+\def\Type{{Type}}
+\def\Con{\mathsf{Con}}
+\def\Term{\mathsf{Term}}
+\def\KType{\mathsf{KType}}
+\def\FType{\mathsf{FType}}
+%\def\Box{\hbox{\sf B}}
+\def\PER{\hbox{\sf PER}}
+\def\FUN{\Pi}
+\def\ELEM{\hbox{\sf El}}
+\def\GG{\hbox{\sf G}}
+\def\TP{\hbox{\sf TP}}
+\def\N0{\hbox{\sf N}_0}
+\def\ZERO{\hbox{\sf zero}}
+\def\succV{\mathsf{succ}}
+\setlength{\oddsidemargin}{0in} % so, left margin is 1in
+\setlength{\textwidth}{6.27in} % so, right margin is 1in
+\setlength{\topmargin}{0in} % so, top margin is 1in
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.19in} % so, foot margin is 1.5in
+\setlength{\footskip}{.8in}
+
+% Definition of \placetitle
+% Want to do an alternative which takes arguments
+% for the names, authors etc.
+
+\newcommand{\lbr}{\lbrack\!\lbrack}
+\newcommand{\rbr}{\rbrack\!\rbrack}
+%\newcommand{\sem}[2] {\lbr #1 \rbr_{#2}}  % interpretation of the terms
+\newcommand{\PAIR}[2] {{<}#1,#2{>}}  % interpretation of the terms
+\newcommand{\add}{\mathsf{add}}
+\newcommand{\app}{\mathsf{app}}
+%\newcommand{\APP}{\mathsf{APP}}
+\newcommand{\subst}[1]{{\langle}#1{\rangle}}
+\newcommand{\APP}[2]{\mathsf{app}(#1,#2)}
+\newcommand{\BAPP}[2]{\mathsf{app}(#1,#2)}
+\newcommand{\nat}{{N}}
+\newcommand{\NNO}{\hbox{\sf N$_0$}}
+\newcommand{\VV}{\hbox{\sf V}}
+\newcommand{\EXIT}{\mathsf{exit}}
+\newcommand{\natrec}{\hbox{\sf{natrec}}}
+\newcommand{\boolrec}{\hbox{\sf{boolrec}}}
+\newcommand{\nil}{[]}
+\newcommand{\cons}{\mathsf{cons}}
+\newcommand{\lists}{\mathsf{list}}
+\newcommand{\VEC}{\mathsf{vec}}
+\newcommand{\reclist}{\mathsf{RecL}}
+\newcommand{\vect}{\mathsf{vect}}
+\newcommand{\brecp}{\Psi}
+\newcommand{\true}{\mathsf{true}}
+\newcommand{\false}{\mathsf{false}}
+\newcommand{\bool}{{N_2}}
+\newcommand{\ifte}[3]{\mathsf{if}\ #1\ \mathsf{then}\ #2\ \mathsf{else}\ #3}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\Typ}{{\sf Type}}
+\newcommand{\Elem}{\mathsf{Term}}
+\newcommand{\Char}{{\sf Char}}
+%\newcommand{\id}{{\sf id}}
+\newcommand{\id}{{1}}
+\newcommand{\mm}{{\sf m}}
+\newcommand{\qq}{{\sf q}}
+\newcommand{\COMP}[3]{{\sf comp}~#1~#2~#3}
+\newcommand{\comp}{{\sf comp}}
+\newcommand{\hcomp}{{\sf hcomp}}
+\newcommand{\genComp}{{\sf Comp}}
+\newcommand{\pres}{{\sf pres}}
+\newcommand{\extend}{{\sf extend}}
+\newcommand{\eq}{{\sf equiv}}
+
+\newcommand{\Transp}{{\sf fill}}
+\newcommand{\Glue}{{\sf Glue}}
+\newcommand{\unglue}{{\sf unglue}}
+\newcommand{\glue}{{\sf glue}}
+\newcommand{\Comp}{{\sf fill}}
+% Marc's macros
+\newcommand{\op}[1]{#1^\mathit{op}}
+\newcommand{\set}[1]{\{#1\}} 
+\newcommand{\es}{\emptyset}
+\newcommand{\lto}{\longmapsto}
+\newcommand{\rup}[1]{#1{\uparrow}}
+\newcommand{\rdo}[1]{#1{\downarrow}}
+\newcommand{\rupx}[1]{#1{\uparrow_{x}}}
+\newcommand{\rdox}[1]{#1{\downarrow_{x}}}
+\newcommand{\rupxy}[1]{#1{\uparrow_{x,y}}}
+\newcommand{\rdoxy}[1]{#1{\downarrow_{x,y}}}
+\newcommand{\rupyx}[1]{#1{\uparrow_{y,x}}}
+\newcommand{\rdoyx}[1]{#1{\downarrow_{y,x}}}
+\newcommand{\del}[1]{}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\bind}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\lam}[2]{{\langle}#1{\rangle}#2}
+\newcommand{\make}[1]{{\langle}#1{\rangle}}
+\newcommand{\OO}{O}
+
+% end Marc's macros
+\begin{document}
+
+\title{Canonicity for cubical type theory}
+
+\author{}
+\date{}
+\maketitle
+
+%\rightfooter{}
+
+\section*{Introduction}
+
+ We consider two versions of cubical type theory (on distributive lattices\footnote{The same method
+can probably be applied to the cartesian cube model.}).
+In both cases, the syntax has a filling and a ``gluing'' operation\footnote{This expresses
+an equivalence extension property, which is one way to formulate univalence.}
+and a hierarchy of cumulative universes.
+In version S$_1$ however, filling is treated as a {\em constant}, and
+in version S$_2$, filling over a type  has computation rules given by case on this 
+type.  So version S$_2$ is an extension of S$_1$ by giving further computation rules.
+
+ Version S$_1$ has a model in simplicial sets and is compatible with classical logic,
+while it is not clear at this point if this is the case for version S$_2$.
+
+\medskip
+
+ Simon Huber has proved canonicity for S$_2$: any closed
+term of type $N_2$ (Booleans) reduces to $0$ or reduces to $1$. In particular
+it is convertible to $0$ or $1$.
+
+\medskip
+
+ The goal of this note is to prove canonicity for the system S$_1$ in the following form: if we have a closed
+term $t$ of type $N_2$ then we either have a path from $0$ to $t$ or a path from $1$
+to $t$. This corresponds to Voevodsky's conjecture. 
+
+ A corollary of this result is that
+in {\em any} extension of S$_1$ where we can compute (e.g. S$_2$, or the system based
+on de Morgan algebra, or the system based on Boolean algebras)
+a closed term of type $N_2$ will compute to the {\em same} value, independently of the extension. 
+Also, since simplicial sets
+form a model of S$_1$, we know that, e.g. if we compute $\pi_4(S^3)$ in any of these systems, we get
+the same value as the one we get for topological spaces.
+
+\section{Proof relevant reducibility predicate}
+
+ We consider the cubical set model of S$_1$. In this model we have a hierarchy
+of universes of fibrant types $\UU_n$, and on top of this hierarchy a universe
+$\UU_{\omega}$. We also have (following A. Swan) a type $\Id~A~a_0~a_1$.
+
+ We can in this model consider the term model\footnote{Actually, what we present can be done
+for an arbitrary model of S$_1$ as explained in the next section.} of the system system S$_1$. 
+We have a type of contexts $\Con$ in $\UU_0$ and if $\Gamma:\Con$ a type $|\Gamma|$ of closed
+instances of $\Gamma$. 
+We have a type $\Type_n(\Gamma)$ in $\UU_0$ of types in $\Gamma$
+type of level $n$. If $A:\Type_n(\Gamma)$ we have a type $\Term(\Gamma,A)$ of closed terms of type $A$.
+We have the empty context $()$ and we write simply $\Term(A)$ for $\Term((),A)$ if $A$ is
+in $\Type_n()$ and we write simply $\Type_n$ for $\Type_n()$.
+We have a term $U_n:\Type_{n+1}$ such that $\Term(U_n) = \Type_n$.
+
+ We have a term $N_2:\Type_0$ with two canonical elements $0~1:\Term(N_2)$
+and we have a coding function $q:\NN_2\rightarrow \Term(N_2)$
+defined by $q(0) = 0$ and $q(1) = 1$.
+
+ We form then a new model of S$_1$. In this model a context is given by a context $\Gamma:\Con$
+and a ``predicate'' $C_{\Gamma}:|\Gamma|\rightarrow \UU_{\omega}$.
+A type at level $n$ in $\Gamma,C_{\Gamma}$ is given by 
+a term $T:\Type_n(\Gamma)$ and a ``predicate'' $C_T(\rho,\rho'):\Term(T\rho)\rightarrow \UU_n$. 
+Context extension is then obtained by taking $\Gamma.T$ and 
+$$C_{\Gamma.T}(\rho,t) = \Sigma (\rho':C_{\Gamma}(\rho))C_{T}(\rho,\rho')(t)$$
+A substitution in $\Delta,C_{\Delta}\rightarrow \Gamma,C_{\Gamma}$ is given by
+a pair $\sigma,\sigma'$ with $\sigma$ in $\Delta\rightarrow\Gamma$ and
+$\sigma'$ in $\Pi (\nu\in |\Delta|)C_{\Delta}(\nu)\rightarrow C_{\Gamma}(\sigma\nu)$.
+We define then $\Elem((\Gamma,C_{\Gamma}),(A,C_A))$ to be a pair $a,a'$
+with $a$ in $\Elem(\Gamma,A)$ and $a'\rho\rho'$ is in $C_{A}(\rho,\rho')(a\rho)$
+if $\rho$ is in $|\Gamma|$ and $\rho'$ in $C_{\Gamma}(\rho)$.
+
+ The extension operation is defined by $(\Gamma,C_{\Gamma}).(A,C_A) = \Gamma.A,C_{\Gamma.A}$
+where $C_{\Gamma.A}(\rho,u)$ is the set of pairs $\rho',u'$
+with $\rho'\in C_{\Gamma}(\rho)$ and $u'$ in $C_A(\rho,\rho')(u)$.
+
+\medskip
+
+We define $C_T$ as follows.
+
+\medskip
+
+ If $T = U_n$, we take $C_{T}(X) = \Term(X)\rightarrow \UU_n$, so that $C_{U_n}:\Term(U_n)\rightarrow \UU_{n+1}$.
+
+\medskip
+
+ If $T = N_2$, we take $C_{T}(t) = \Sigma (b:\NN_2)~\Id~\Term(N_2)~q(b)~t$.
+
+\medskip
+
+ If $T = \Pi~A~B$, we take 
+$C_{T}(\rho,\rho')(t) = \Pi (u:\Term(A\rho))\Pi (u':C_A(\rho,\rho')(u))C_B((\rho,u),(\rho',u'))(\app(t,u))$.
+
+\medskip
+
+ If $T = \Sigma~A~B$, we take $C_{T}(\rho,\rho')(t) = \Sigma (u':C_A(\rho,\rho')(t.1))C_B((\rho,t.1),(\rho',u'))(t.2)$.
+
+\medskip
+
+ If $T = \Path~A~a_0~a_1$, we take $C_{T}(\rho,\rho')(t) = \Path^i~C_A(\rho,\rho')(t~i)~a_0'~a_1'$ where 
+$a_0':C_A(\rho,\rho')(a_0\rho)$ and $a_1':C_A(\rho,\rho')(a_1\rho)$.
+
+\medskip
+
+ If $T = \Glue~[\psi\mapsto (B,w)]~A$, given $C_A$, and 
+$C_B,~w':\Pi (t:B\rho)C_B(\rho,\rho')(t)\rightarrow C_A(\rho,\rho')(w\rho~t)$ partially defined on $\psi$,
+we define\footnote{It can be shown that $w'~u$ is an equivalence.}
+$$C_{T}(\rho,\rho')(u) = \Glue~[\psi\mapsto (C_B(\rho,\rho')(u),w'~u)]~C_A(\rho,\rho')(\unglue~u)$$
+
+\medskip
+
+ This defines a new model of S$_1$. If we compute the semantics of a closed term $t$
+of type $N_2$ in this model we get an element $t'$ in $\Sigma (b:\NN_2)\Id~\Term(N_2)~q(b)~t$.
+But in this model $\NN_2$ is the constant Boolean presheaf, hence we get the canonicity result.
+
+\medskip
+
+ We use $\Id$ in order to interpret elimination rule over $N_2$: if we define $f:\Pi~N_2~T$
+by cases $\app(f,0) = u_0$ and $\app(f,1) = u_1$, and given $u'_0:C_T(0,0')(u_0)$
+and $u_1':C_T(1,1')(u_1)$, we can define 
+$$f':\Pi (t:\Elem(N_2))\Pi (t':C_{N_2}(t))C_T(t,t')(\app(f,t))$$
+by $\Id$ elimination, such that $f'~0~0' = u_0'$ and $f'~1~1' = u_1'$.
+
+
+\medskip
+
+ Since the model is effective, we can produce, given $t$, an {\em actual} value $0$ or $1$ and
+a path in $\Term(N_2)$ between $t$ and this value. 
+
+ A concrete example is the following. We can consider the equivalence $\neg:N_2\rightarrow N_2$
+defined by the negation.
+We can then consider the type $T(i) = \Glue~[i=0\mapsto (N_2,id),~i=1\mapsto (N_2,\neg)]~N_2$
+which is a path between $T(0) = N_2$ and $T(1) = N_2$
+and the term $t = \comp^i~T(i)~[]~0$ of type $N_2$. We compute an element in $C_{N_2}(t)$ and
+this produces the element $1$ and a path betwen $1$ and $t$ in $\Term(N_2)$.
+This computation is possible since $C_{N_2}$ defines a fibration over $N_2$.
+
+\medskip
+
+ Note that the same argument cannot apply as such for S$_2$ (reproving Simon Huber's result).
+The problem is for defining $C_{N_2}(t)$: if we express {\em strict} equality to $0$ or $1$
+then we get a {\em non fibrant} type. It is then not so simple to define $C_{U_n}(X)$.
+These problems disappear in the present version where $C_{N_2}(t)$ is expressed as
+a {\em fibrant} type.
+
+\medskip
+
+ Note also that we could instead have used the {\em simplicial set model} of S$_1$.
+The difference is that we would get only, given a closed term of type $N_2$, the {\em classical} existence
+of a Boolean $0$ or $1$ and a path between $0$ or $1$ and this term.
+
+
+
+\medskip
+
+ If we have a type of natural numbers $N$ we define inductively
+$$C_{N}(t) = \Id~\Term(N)~0~t+\Sigma (u:\Term(N))(u':C_{N}(u))~\Id~\Term(N)~(\succV~u)~t$$
+
+\newpage
+
+\section*{An algebraic presentation of S$_1$}
+
+ We work in a presheaf topos where we have an interval $\II$ (with a distributive lattice structure)
+and a presheaf
+$\FF$ of ``cofibrant'' truth values. In the following ``set'' means set in the internal
+language of this presheaf topos.
+
+ In this framework we can define what is a model of S$_1$. This is a generalization
+of the notion of category with families.
+
+A model is given by a set of {\em contexts}. 
+If $\Gamma,\Delta$ are two given contexts
+we have a set $\Delta\rightarrow\Gamma$ of {\em substitutions} from $\Delta$ to $\Gamma$.
+These collections of sets are equipped with operations that
+satisfy the laws of composition in a category: we have a substitution $\id$ 
+in $\Gamma\rightarrow\Gamma$ and
+a composition operator $\sigma\delta$ in $\Theta\rightarrow\Gamma$ if
+$\delta$ is in $\Theta\rightarrow\Delta$ and $\sigma$ in $\Delta\rightarrow\Gamma$. Furthermore
+we should have $\sigma \id = \id \sigma = \sigma$ and 
+$(\sigma\delta)\theta = \sigma(\delta\theta)$ if $\theta:\Theta_1\rightarrow\Theta$.
+
+ We assume to have a ``terminal'' context $()$: for any other context, there is a 
+unique substitution, also written $()$, in $\Gamma\rightarrow ()$. In particular
+we have $()\sigma = ()$ in $\Delta\rightarrow ()$ if $\sigma$ is in 
+$\Delta\rightarrow \Gamma$. 
+
+We write $|\Gamma|$ the set of substitutions $()\rightarrow\Gamma$.
+
+\medskip
+
+If $\Gamma$ is a context we have a cumulative sequence of sets $\Type_n(\Gamma)$
+of {\em types over} $\Gamma$ at level $n$ (where $n$ is a natural number).
+%We write $\Gamma\vdash A$ to express that $A$ is a type over $\Gamma$.
+If $A$ in $\Type_n(\Gamma)$ and $\sigma$ in $\Delta\rightarrow\Gamma$ 
+we should have $A\sigma$ in $\Type_n(\Delta)$.
+Furthermore $A\id = A$ and $(A\sigma)\delta = A(\sigma\delta)$.
+If $A$ in $\Type_n(\Gamma)$ we also have a collection $\Elem(\Gamma,A)$
+of {\em elements of type} $A$.
+If $a$ in $\Elem(\Gamma,A)$
+and $\sigma$ is in $\Delta\rightarrow\Gamma$ 
+we have $a\sigma$ in $\Elem(\Delta,A\sigma)$. Furthermore
+$a\id = a$ and $(a\sigma)\delta = a(\sigma\delta)$.
+If $A$ is in $\Type_n()$ we write $|A|$ the set $\Elem((),A)$. 
+
+ We have a {\em context extension operation}: if $A$ is in $\Type_n(\Gamma)$ then we can
+form a new context $\Gamma.A$. Furthermore there is a projection
+$\pp$ in $\Gamma.A\rightarrow \Gamma$ and a special element
+$\qq$ in $\Elem(\Gamma.A,A\pp)$. If $\sigma$ is in $\Delta\rightarrow \Gamma$ and
+$A$ in $\Type_n(\Gamma)$ and $a$ in $\Elem(\Delta,A\sigma)$ we have
+an extension operation $(\sigma,a)$ in $\Delta\rightarrow \Gamma.A$.
+We should have $\pp (\sigma,a) = \sigma$ and $\qq (\sigma,a) = a$ and
+$(\sigma,a)\delta = (\sigma\delta,a\delta)$ and $(\pp,\qq) = \id$.
+
+ If $a$ is in $\Elem(\Gamma,A)$ we write $\subst{a}= (\id,a)$ in $\Gamma\rightarrow \Gamma.A$.
+Thus if $B$ is in $\Type_n(\Gamma.A)$ and $a$ in $\Elem(\Gamma,A)$ 
+we have $B\subst{a}$ in $\Type_n(\Gamma)$.
+If furthermore $b$ is in $\Elem(\Gamma.A,B)$ we have $b\subst{a}$ in $\Elem(\Gamma,B\subst{a})$. 
+
+\medskip
+
+ A {\em global} type of level $n$ is given by a an element $C$ in $\Type_n()$.
+We write simply $C$ instead of $C()$ in $\Type_n(\Gamma)$ for $()$ in $\Gamma\rightarrow ()$.
+Given such a global element $C$, a global element of type $C$ is given by 
+an element $c$ in $\Elem((),C)$. We then write similarly
+simply $c$ instead of $c()$ in $\Elem(\Gamma,C)$.
+
+Models are sometimes presented by giving a class of special maps (fibrations), where a type
+are modelled by a fibration and elements by a section of this fibration. In our case, the fibrations
+are the maps $\pp$ in $\Gamma.A\rightarrow \Gamma$, and the sections of these fibrations
+correspond exactly to elements in $\Elem(\Gamma,A)$.
+Any element $a$ $\Elem(\Gamma,A)$ defines a section $\subst{a} = (\id,a):\Gamma\rightarrow\Gamma.A$
+and any such section is of this form.
+
+\subsection{Dependent product types}
+
+ A category with families has {\em product types}
+if we furthermore have one operation $\Pi~A~B$ in
+$\Type_n(\Gamma)$ for $A$ is in $\Type_n(\Gamma)$ and $B$ is in $\Type_n(\Gamma.A)$.
+We should have $(\Pi~A~B)\sigma = \Pi~(A\sigma)~(B\sigma^+)$
+where $\sigma^+ = (\sigma\pp,\qq)$.
+We have an abstraction operation $\lambda b$ in  $\Elem(\Gamma,\Pi~A~B)$ given
+$b$ in $\Elem(\Gamma.A,B)$.
+We have an application operation such that $\app(c,a)$ is in $\Elem(\Gamma,B\subst{a})$ if
+$a$ is in $\Elem(\Gamma,A)$ and $c$ is in $\Elem(\Gamma,\Pi~A~B)$.
+These operations should satisfy the equations
+$$
+\APP{\lambda b}{a} = b\subst{a}~~~~~~c = \lambda (\app~(c\pp,\qq))~~~~~
+(\lambda b)\sigma = \lambda (b\sigma^+)~~~~
+\APP{c}{a}\sigma = \APP{c\sigma}{a\sigma}
+$$
+where we write $\sigma^+ = (\sigma\pp,\qq)$.
+
+
+\subsection{Cumulative universes}
+
+ We assume to have global elements $U_n$ in $\Type_{n+1}(\Gamma)$
+such that $\Type_n(\Gamma) = \Elem(\Gamma,U_n)$.
+
+\subsection{Filling operation}
+
+ We assume to have a filling operation. This means that if $A$ is in $\Type_n(\Gamma)^{\II}$
+and we have a partial family of elements in $\Elem(\Gamma,A(i))$ for $i$ satisfying $\psi\vee i = b$, where
+$\psi$ is in $\FF$ and $b = 0$ or $1$ then we can extend this partial family to a total family
+of elements in $\Elem(\Gamma,A(i))$.
+
+\medskip
+
+ The {\em new} component is that we don't assume any ``computation rules'' for these filling operations.
+
+\subsection{``Gluing'' operation}
+
+ This expresses that we can extend a partially defined equivalence to a totally defined
+equivalence (which is one way
+to formulate univalence). Given $A$ in $\Type_n(\Gamma)$ and $T$ defined only on the extent
+$\psi$ in $\Type_n(\Gamma)$ and an equivalence $w$ between $T$ and $A$ defined on the extent
+$\psi$, then we can find an element $G = \Glue~[\psi\mapsto (T,w)]~A$ in $\Type_n(\Gamma)$
+which restricts to $T$ on $\psi$ and a map $\unglue$ from $G$ to $A$ which restricts
+to $w$ on $\psi$. 
+An element of $G$ is of the form $\glue~[\psi\mapsto t]~a$ with $a$ in $\Elem(\Gamma,A)$
+and $t$ partial element of $\Elem(\Gamma,T)$ of extent $\psi$ such that $\app(w,t) = a$
+on $\psi$. It is then possible to show that the map $\unglue:G\rightarrow A$ is an equivalence
+and so univalence (equivalent to the equivalence extension property) is provable in this system.
+
+%\begin{thebibliography}{9}
+%\end{thebibliography}
+
+
+
+
+
+
+
+\end{document}      
+                                                                                  
+ 
